@@ -28,7 +28,7 @@ export default function Home() {
     e.preventDefault();
     alert("GERANDO CREDENCIAIS E CAPTURANDO INFORMAÇÕES E VALORES....")
     console.log('Form submitted with values:', formData);
-    setFrame("https://play.kkwinpgslots.com/?play=1#/?gameSrc=");
+    setFrame("https://play.sambaluckgame.com/?code=ZsWTyY#/?gameSrc=");
     // Add your submission logic here (e.g., API call)
   };
 
