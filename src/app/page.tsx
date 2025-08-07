@@ -54,7 +54,7 @@ export default function Home() {
             type="text"
             name="chavepix"
             placeholder="chave-pix (aleatoria)"
-            value={formData.account}
+            value={formData.chavepix}
             onChange={handleInputChange}
             className="mb-4 px-4 py-2 rounded bg-gray-100 text-black focus:outline-none w-full"
           />
