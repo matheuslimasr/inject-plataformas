@@ -99,10 +99,11 @@ export default function Home() {
         <div className="flex-1 bg-[#292A2D]">
           {frame !== "https://www.google.com/" && <h2 className='text-[1.4em] font-bold text-green-500 p-[10px]'>1. CONEXÃO FEITA COM SUCESSO!</h2>}
           {frame !== "https://www.google.com/" && <h2 className='text-[1.4em] font-bold text-red-500 p-[10px]'>1/2 AGUARDANDO RESPOSTA DO SERVIDOR! aguarde....</h2>}
-
+          {frame !== "https://www.google.com/" && <h2 className='text-[1.4em] font-bold text-orange-500 p-[10px]'>1/2 connection refused by the system, please try again later or contact support</h2>}
           <iframe src={frame} className='w-full h-[800px]'></iframe>
         </div>
       </div>
     </div>
   );
 }
+
