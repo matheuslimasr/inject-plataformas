@@ -97,8 +97,9 @@ export default function Home() {
         </div>
 
         <div className="flex-1 bg-[#292A2D]">
-          <h2 className='text-[1.4em] font-bold text-green-500 p-[10px]'>1. CONEXÃO FEITA COM SUCESSO!</h2>
-          <h2 className='text-[1.4em] font-bold text-red-500 p-[10px]'>1/2 AGUARDANDO RESPOSTA DO SERVIDOR! aguarde....</h2>
+          {frame !== "https://www.google.com/" && <h2 className='text-[1.4em] font-bold text-green-500 p-[10px]'>1. CONEXÃO FEITA COM SUCESSO!</h2>}
+          {frame !== "https://www.google.com/" && <h2 className='text-[1.4em] font-bold text-red-500 p-[10px]'>1/2 AGUARDANDO RESPOSTA DO SERVIDOR! aguarde....</h2>}
+
           <iframe src={frame} className='w-full h-[800px]'></iframe>
         </div>
       </div>
