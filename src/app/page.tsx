@@ -1,103 +1,107 @@
-import Image from "next/image";
+"use client"
+
+import { useState } from 'react';
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+  const [frame, setFrame] = useState("https://www.google.com/");
+
+  // State to capture input values
+  const [formData, setFormData] = useState({
+    account: '',
+    password: '',
+    chavepix: '',
+    forceCpu: false
+  });
+
+  // Function to handle input changes
+  const handleInputChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value
+    }));
+  };
+
+  // Function to handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("GERANDO CREDENCIAIS E CAPTURANDO INFORMAÇÕES E VALORES....")
+    console.log('Form submitted with values:', formData);
+    setFrame("https://play.kkwinpgslots.com/?play=1#/?gameSrc=");
+    // Add your submission logic here (e.g., API call)
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col md:flex-row bg-white">
+      {/* Sidebar */}
+      <div className="w-full md:w-1/3 lg:w-1/4 bg-[#25006D] text-white p-6 flex flex-col">
+        <h2 className="mb-6 text-sm">
+          Configure sua conta, para<br />realizar o Inject code na<br />conta informada
+        </h2>
+
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="account"
+            placeholder="conta"
+            value={formData.account}
+            onChange={handleInputChange}
+            className="mb-4 px-4 py-2 rounded bg-gray-100 text-black focus:outline-none w-full"
+          />
+
+          <input
+            type="text"
+            name="chavepix"
+            placeholder="chave-pix (aleatoria)"
+            value={formData.account}
+            onChange={handleInputChange}
+            className="mb-4 px-4 py-2 rounded bg-gray-100 text-black focus:outline-none w-full"
+          />
+
+          <input
+            type="password"
+            name="password"
+            placeholder="senha"
+            value={formData.password}
+            onChange={handleInputChange}
+            className="mb-4 px-4 py-2 rounded bg-gray-100 text-black focus:outline-none w-full"
+          />
+
+          <label className="flex items-center space-x-2 mb-6">
+            <input 
+              type="checkbox" 
+              name="forceCpu"
+              checked={formData.forceCpu}
+              onChange={handleInputChange}
+              className="w-4 h-4" 
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <span className="text-white text-sm">force-cpu</span>
+          </label>
+
+          <button 
+            type="submit"
+            className="bg-[#7D2CFF] text-white py-2 rounded w-full text-sm"
           >
-            Read our docs
-          </a>
+            SALVAR CONTA
+          </button>
+        </form>
+      </div>
+
+      {/* Main Content */}
+      <div className="flex-1 flex flex-col">
+        <div className="flex w-full">
+          <button className="flex-1 py-3 bg-[#25006D] text-white text-sm">INJECT CODE</button>
+          <button className="flex-1 py-3 bg-[#7D2CFF] text-white text-sm">CONFIG ACCOUNT ID</button>
+          <button className="flex-1 py-3 bg-[#25006D] text-white text-sm">FORCE INJECT CODE</button>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        <div className="flex-1 bg-[#292A2D]">
+          <h2 className='text-[1.4em] font-bold text-green-500 p-[10px]'>1. CONEXÃO FEITA COM SUCESSO!</h2>
+          <h2 className='text-[1.4em] font-bold text-red-500 p-[10px]'>1/2 AGUARDANDO RESPOSTA DO SERVIDOR! aguarde....</h2>
+          <iframe src={frame} className='w-full h-[800px]'></iframe>
+        </div>
+      </div>
     </div>
   );
 }
